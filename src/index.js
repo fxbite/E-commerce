@@ -18,14 +18,9 @@ app.engine('.hbs', exphbs({extname: '.hbs'}));
 app.set('view engine', '.hbs');
 app.set('views', path.join(__dirname, 'resources/views'));
 
-// Route
-app.get('/', (req, res) => {
-    res.render('home');
-})
-
-app.get('/products', (req, res) => {
-    res.send('product');
-})
+// Route init
+const route = require('./routes')
+route(app);
 
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
