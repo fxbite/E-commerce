@@ -8,7 +8,7 @@ class ProductsController {
         Product.find({})
             .then(products => {
                 products = products.map(product => product.toObject());
-                res.render('products', { products });
+                res.render('add-to-cart', { products });
             })
 
             .catch(next);

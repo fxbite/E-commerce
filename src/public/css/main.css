@@ -2549,6 +2549,10 @@ body.mobile-nav-active #mobile-nav-toggle {
   transition: all 0.3s ease 0s;
 }
 
+.margin-top-item {
+  margin-top: 16px;
+}
+
 .card-products-item {
   margin-top: 16px;
 }
