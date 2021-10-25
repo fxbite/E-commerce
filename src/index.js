@@ -21,7 +21,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Template engine
 app.engine('.hbs', exphbs({extname: '.hbs'}));
 app.set('view engine', '.hbs');
-app.set('views', path.join(__dirname, 'resources/views'));
+app.set('views', path.join(__dirname, 'resources', 'views'));
 
 // HTTP Logger
 app.use(morgan('dev'));
