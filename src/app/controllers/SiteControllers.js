@@ -39,6 +39,10 @@ class SiteController {
         var cart = new Cart(req.session.cart);
         res.render('shopping-cart', {products: cart.generateArray(), totalPrice: cart.totalPrice});
     }
+
+    staff(req, res) {
+        res.render('staff', {layout: false});
+    }
 }
 
 module.exports = new SiteController;

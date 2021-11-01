@@ -3,6 +3,9 @@ const router = express.Router()
 
 const siteController = require('../app/controllers/SiteControllers')
 
+// siteController.staff
+router.get('/admin/staff', siteController.staff)
+
 // siteController.shopping
 router.get('/shopping-cart/', siteController.shopping)
 
