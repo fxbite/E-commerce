@@ -1,5 +1,6 @@
 const Product = require('../models/Products')
 const Cart = require('../models/Cart')
+const Staff = require('../models/Staff')
 
 class SiteController {
     
@@ -40,8 +41,17 @@ class SiteController {
         res.render('shopping-cart', {products: cart.generateArray(), totalPrice: cart.totalPrice});
     }
 
-    staff(req, res) {
-        res.render('staff', {layout: false});
+    // [GET] /admin/staff
+    staff(req,res,next) {
+        Staff.find({})
+        .then(staff => {
+            staff = staff.map(staffs => staffs.toObject());
+            res.render('staff', { layout: false, staff });
+        })
+
+        .catch(next);
+
+        
     }
 }
 
