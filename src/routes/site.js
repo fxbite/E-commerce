@@ -7,7 +7,7 @@ const siteController = require('../app/controllers/SiteControllers')
 router.get('/admin/staff', siteController.staff)
 
 // siteController.shopping
-router.get('/shopping-cart/', siteController.shopping)
+router.get('/shopping-cart', siteController.shopping)
 
 // siteController.cart
 router.get('/add-to-cart/:id', siteController.cart)

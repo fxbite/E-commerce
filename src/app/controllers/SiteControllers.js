@@ -1,6 +1,7 @@
 const Product = require('../models/Products')
 const Cart = require('../models/Cart')
 const Staff = require('../models/Staff')
+const { multipleMongooseToObject } = require('../../util/mongoose')
 
 class SiteController {
     
@@ -35,10 +36,10 @@ class SiteController {
     // [GET] /shopping-cart
     shopping(req, res, next) {
         if (!req.session.cart) {
-            return res.render('shopping-cart', {products: null});
+            return res.render('shopping-cart', {products: null, layout: false});
         }
         var cart = new Cart(req.session.cart);
-        res.render('shopping-cart', {products: cart.generateArray(), totalPrice: cart.totalPrice});
+        res.render('shopping-cart', {products: cart.generateArray(), totalPrice: cart.totalPrice, layout: false});
     }
 
     // [GET] /admin/staff
