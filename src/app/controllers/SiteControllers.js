@@ -47,7 +47,7 @@ class SiteController {
         Staff.find({})
         .then(staff => {
             staff = staff.map(staffs => staffs.toObject());
-            res.render('staff', { layout: false, staff });
+            res.render('staff', { layout: 'admin', staff });
         })
 
         .catch(next);
