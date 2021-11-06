@@ -1,4 +1,4 @@
-const { multipleMongooseToObject } = require('../../util/mongoose')
+const { multipleMongooseToObject, mongooseToObject } = require('../../util/mongoose')
 const Product = require('../models/Products')
 const Staff = require('../models/Staff')
 const Depart = require('../models/Depart')
@@ -86,7 +86,60 @@ class AdminController {
             })
     }
 
+    // [GET] /admin/manage-staff/:id/edit
+    editStaff(req, res, next) {
+        Staff.findById(req.params.id)
+            .then(staff => res.render('edit-staff', {
+                layout: 'admin',
+                staff: mongooseToObject(staff)
+            }))
+            .catch(next);
+        
+        
+    }
     
+    // [GET] /admin/manage-depart/:id/edit
+    editDepart(req, res, next) {
+        Depart.findById(req.params.id)
+            .then(depart => res.render('edit-depart', {
+                layout: 'admin',
+                depart: mongooseToObject(depart)
+            }))
+            .catch(next);
+       
+    }
+
+    // [GET] /admin/manage-products/:id/edit
+    editProduct(req, res, next) {
+        Product.findById(req.params.id)
+            .then(products => res.render('edit-products', {
+                layout: 'admin',
+                products: mongooseToObject(products)
+            }))
+            .catch(next);
+        
+    }
+
+    // [PUT] /admin/manage-products/:id
+    updateProduct(req, res, next) {
+        Product.updateOne({ _id: req.params.id }, req.body)
+            .then(() => res.redirect('/admin/manage-products'))
+            .catch(next)
+    }
+
+    // [PUT] /admin/manage-staff/:id
+    updateStaff(req, res, next) {
+        Staff.updateOne({ _id: req.params.id }, req.body)
+            .then(() => res.redirect('/admin/manage-staff'))
+            .catch(next)
+    }   
+
+    // [PUT] /admin/manage-depart/:id
+    updateDepart(req, res, next) {
+        Depart.updateOne({ _id: req.params.id }, req.body)
+            .then(() => res.redirect('/admin/manage-depart'))
+            .catch(next)
+    }
 }
 
 module.exports = new AdminController;

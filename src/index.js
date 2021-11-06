@@ -6,10 +6,13 @@ const session = require('express-session')
 const flash = require('connect-flash')
 const MongoStore = require('connect-mongo')
 const mongoose = require('mongoose')
+const methodOverride = require('method-override')
 
 require('dotenv').config();
 const app = express();
 const port = process.env.PORT || 3000;
+
+app.use(methodOverride('_method'))
 
 // Middleware
 app.use(express.urlencoded({ extended: true }))
