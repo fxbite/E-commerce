@@ -3,6 +3,15 @@ const router = express.Router()
 
 const adminController = require('../app/controllers/AdminControllers')
 
+// adminController.store
+router.post('/store-depart', adminController.storeDepart)
+
+// adminController.store
+router.post('/store-products', adminController.storeProduct)
+
+// adminController.store
+router.post('/store-staff', adminController.storeStaff)
+
 // adminController.manageDepart
 router.get('/manage-depart', adminController.manageDepart)
 

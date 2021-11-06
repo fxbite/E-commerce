@@ -5,6 +5,7 @@ const Staff = new Schema({
     ID: { type: String, maxLength: 255 },
     name: { type: String, maxLength: 255 },
     shift: { type: String, maxLength: 255 },
+    depart: { type: String, maxLength: 255 },
     salary: { type: String, maxLength: 255 },
     phone: { type: String, maxLength: 255 },
     gender: { type: String, maxLength: 255 },
